@@ -22,11 +22,17 @@ public class PasswordEncoder {
     }
 
     public boolean matches(String encodedPassword, String password) {
+        if (encodedPassword.length() < 160) {
+            throw new IncorrectPasswordFormException();
+        }
         String[] data = encodedPassword.split("[$]");
+        if (data.length < 3) {
+            throw new IncorrectPasswordFormException();
+        }
         BigInteger bigIntegerSalt = new BigInteger(data[1], 16);
         byte[] salt = bigIntegerSalt.toByteArray();
 
-//      When converting numbers, we can get an extra (empty) start bit
+//      When converting numbers, we can get an extra (empty) start byte
         if (salt.length > 16) {
             salt = Arrays.copyOfRange(salt, 1, salt.length);
         }

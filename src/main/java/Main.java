@@ -10,7 +10,7 @@ public class Main {
             System.out.println(passwordEncoder.matches(hashPassword, password));
             System.out.println("h2p = " + h2p);
             System.out.println("hashPassword = " + hashPassword);
-            System.out.println(passwordEncoder.matches(h2p, password));
+            System.out.println(passwordEncoder.matches("h2p", password));
         }
     }
 }
