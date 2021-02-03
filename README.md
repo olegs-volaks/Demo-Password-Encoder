@@ -1,7 +1,7 @@
 # Demo-Password-Encoder
 This code is for educational purposes and implements password encoder using SHA-512 + salt.
 
-## Contains the PasswordDecoder class, which contains methods
+## Contains the PasswordEncoder class, which contains methods
 ```java
 public String encode(String password)
 public String encode(String password, int level)
